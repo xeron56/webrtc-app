@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Person swappedPerson = swapPersonAttributes(person);
 
         TextView tv = binding.sampleText;
-        tv.setText("Sum: " + sum + ", Difference: " + difference + ", Array Sum: " + arrysum + ", Reversed String: " + reversedString + ", Swapped Person: " + swappedPerson.getName() + ", " + swappedPerson.getAge();
+        tv.setText("Sum: " + sum + ", Difference: " + difference + ", Array Sum: " + arrysum + ", Reversed String: " + reversedString + ", Swapped Person: " + swappedPerson.getName() + ", " + swappedPerson.getAge());
     }
 
     /**
