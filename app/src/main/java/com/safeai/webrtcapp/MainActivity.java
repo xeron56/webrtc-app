@@ -1,10 +1,8 @@
 package com.safeai.webrtcapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
-
 import com.safeai.webrtcapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,18 +17,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Example of a call to a native method
+        // Call native methods
+        int sum = calculateSum(10, 5);
+        int difference = calculateDifference(10, 5);
+
+        int array[] = {1, 2, 3, 4, 5};
+        int arrysum = CalculateArrySum(array);
+
+        String originalString = "Hello from Java";
+        String reversedString = ReversesString(originalString);
+
         TextView tv = binding.sampleText;
-        tv.setText(stringFromJNI());
+        tv.setText("Sum: " + sum + ", Difference: " + difference + ", Array Sum: " + arrysum + ", Reversed String: " + reversedString);
     }
 
     /**
-     * A native method that is implemented by the 'webrtcapp' native library,
-     * which is packaged with this application.
+     * Native methods declared here
      */
-    public native String stringFromJNI();
+    public native int calculateSum(int a, int b);
+    public native int calculateDifference(int a, int b);
+
+    public native int CalculateArrySum (int[] array);
+
+    public native String ReversesString(String input);
+
+    public native  Person swapPersonAttributes(Person person);
 }
